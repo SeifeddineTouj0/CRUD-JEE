@@ -107,7 +107,7 @@ public class UserController extends HttpServlet {
         UserBean updatedUser = new UserBean(id, username, email);
         System.out.println(updatedUser);
         userDao.updateUser(updatedUser);
-        response.sendRedirect("user?action=list");
+        response.sendRedirect("user");
     }
 
     private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

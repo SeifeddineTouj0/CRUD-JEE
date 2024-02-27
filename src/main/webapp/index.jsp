@@ -19,12 +19,12 @@
             </tr>
         </thead>
         <tbody>
-            <%-- Iterate over the users list using a traditional for loop --%>
+            <%-- Iterate over the users list using a for loop --%>
             <% List<UserBean> users = (List<UserBean>) request.getAttribute("users"); %>
             <% if (users != null) { %>
-                <% for (UserBean user : users) { %>
-                    <%-- Introduce the "user" bean using <jsp:useBean> --%>
+                <% for (int i = 0; i < users.size(); i++) { %>
                     <jsp:useBean id="user" class="User.UserBean" scope="page" />
+                    <jsp:setProperty name="user" property="*" value="<%= users.get(i) %>" />
                     <tr>
                         <td><jsp:getProperty name="user" property="id"/></td>
                         <td><jsp:getProperty name="user" property="username"/></td>
